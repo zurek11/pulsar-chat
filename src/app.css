@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-pulsar-bg: #0f0f13;
+	--color-pulsar-surface: #1a1a24;
+	--color-pulsar-border: #2a2a3a;
+	--color-pulsar-text: #e2e2f0;
+	--color-pulsar-muted: #7a7a9a;
+	--color-pulsar-accent: #7c6af7;
+	--color-pulsar-accent-hover: #9585fa;
+}

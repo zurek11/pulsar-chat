@@ -26,6 +26,26 @@ export default [
 			parser: svelteParser,
 			parserOptions: { parser: tsParser },
 			globals: { ...globals.browser }
+		},
+		rules: {
+			// TypeScript interfaces with function-type params are falsely flagged
+			// svelte-check / tsc handle unused-var detection for Svelte files
+			'no-unused-vars': 'off'
+		}
+	},
+	{
+		// Svelte 5 rune globals for .svelte.ts state modules
+		files: ['**/*.svelte.ts'],
+		languageOptions: {
+			globals: {
+				$state: 'readonly',
+				$derived: 'readonly',
+				$effect: 'readonly',
+				$props: 'readonly',
+				$bindable: 'readonly',
+				$inspect: 'readonly',
+				$host: 'readonly'
+			}
 		}
 	},
 	{

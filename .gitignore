@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build
+.svelte-kit/
+build/
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Bun
+bun.lockb
+
+# Testing
+test-results/
+playwright-report/
+playwright/.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/settings.json
+*.swp
+*.swo
+
+# Claude Code local settings
+.claude/settings.local.json

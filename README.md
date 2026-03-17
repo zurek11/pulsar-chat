@@ -15,15 +15,18 @@ The goal is to understand RAG end-to-end by building it, not by reading about it
 
 ## Stack
 
-| Layer | Technology |
-|-------|-----------|
+| Layer     | Technology                   |
+| --------- | ---------------------------- |
 | Framework | SvelteKit + Svelte 5 (runes) |
-| Language | TypeScript (strict) |
-| Styling | Tailwind CSS 4 |
-| Runtime | Bun |
-| Testing | Vitest + Playwright |
+| Language  | TypeScript (strict)          |
+| Styling   | Tailwind CSS 4               |
+| Runtime   | Bun                          |
+| Testing   | Vitest + Playwright          |
+| Container | Docker (multi-stage)         |
 
 ## Getting Started
+
+### Local Development
 
 ```bash
 # Prerequisites: Bun (https://bun.sh)
@@ -36,10 +39,16 @@ bun install
 
 # Configure
 cp .env.example .env
-# Edit .env if your backend runs on a different port
 
 # Start dev server
 bun dev
+```
+
+### Docker
+
+```bash
+docker build -t pulsar-chat .
+docker run -p 3000:3000 pulsar-chat
 ```
 
 Make sure [pulsar-api](https://github.com/zurek11/pulsar-api) is running on `http://localhost:8000`.
@@ -50,6 +59,7 @@ Make sure [pulsar-api](https://github.com/zurek11/pulsar-api) is running on `htt
 - 🗑️ Clear chat history
 - ⚡ Real-time token streaming via SSE
 - 📱 Responsive design
+- 🐳 Dockerized with multi-stage build
 
 ## Development
 
@@ -72,6 +82,8 @@ _This section will be updated as the project progresses._
 - [ ] Tailwind CSS 4 theming
 - [ ] Vitest + Playwright testing
 - [ ] Claude Code workflow (CLAUDE.md, skills, settings)
+- [ ] Docker multi-stage builds
+- [ ] RAG fundamentals (chunking, embeddings, retrieval)
 
 ## License
 

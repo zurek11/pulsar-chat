@@ -7,6 +7,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 # New Svelte 5 Component
 
 ## When to Use
+
 - Creating a new reusable component
 - Adding a new chat UI element (message bubble, input, typing indicator)
 - Building any interactive widget
@@ -15,45 +16,41 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ```svelte
 <script lang="ts">
-  interface Props {
-    // Define typed props here
-    label: string;
-    variant?: 'primary' | 'secondary';
-    disabled?: boolean;
-  }
+	interface Props {
+		label: string;
+		variant?: 'primary' | 'secondary';
+		disabled?: boolean;
+	}
 
-  let { label, variant = 'primary', disabled = false }: Props = $props();
+	let { label, variant = 'primary', disabled = false }: Props = $props();
 
-  // Reactive state with $state()
-  let count = $state(0);
+	let count = $state(0);
+	const isActive = $derived(count > 0);
 
-  // Derived values with $derived()
-  const isActive = $derived(count > 0);
+	$effect(() => {
+		// side effects here (DOM interactions, subscriptions, etc.)
+	});
 
-  // Side effects with $effect()
-  $effect(() => {
-    // Runs when dependencies change
-    console.log('count changed:', count);
-  });
-
-  // Event handlers prefixed with "handle"
-  function handleClick() {
-    count += 1;
-  }
+	function handleClick(): void {
+		count += 1;
+	}
 </script>
 
 <div class="flex items-center gap-2">
-  <button
-    class="px-4 py-2 rounded-lg {variant === 'primary' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'}"
-    {disabled}
-    onclick={handleClick}
-  >
-    {label}
-  </button>
+	<button
+		class="rounded-lg px-4 py-2 {variant === 'primary'
+			? 'bg-blue-600 text-white'
+			: 'bg-gray-200 text-gray-800'}"
+		{disabled}
+		onclick={handleClick}
+	>
+		{label}
+	</button>
 </div>
 ```
 
 ## Rules
+
 1. Always use Svelte 5 runes — never `$:`, `export let`, or stores API
 2. Props interface at top of `<script>` block, always typed
 3. Use `$props()` destructuring with defaults
@@ -64,3 +61,5 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 8. Include ARIA attributes for accessibility
 9. Use Tailwind classes — no inline styles or custom CSS
 10. Event handlers start with `handle` prefix
+11. Add `data-testid` attributes for e2e test selectors
+12. All functions must have explicit TypeScript return types

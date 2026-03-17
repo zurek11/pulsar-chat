@@ -145,14 +145,17 @@ Semantic versioning in `package.json`. See `.claude/skills/release/SKILL.md` for
 
 ### Skills (`.claude/skills/`)
 
-Claude Code automatically discovers these when relevant:
+Skills are NOT auto-applied. Claude Code MUST invoke each skill explicitly via the Skill tool
+before the corresponding work begins. Skills are mandatory, not optional suggestions.
 
-- **svelte-component** — creating new Svelte 5 components with runes
-- **api-integration** — API calls, SSE streaming, error handling
-- **testing** — Vitest unit tests and Playwright e2e tests
-- **git-workflow** — branching, emoji commits, pre-push checklist
-- **release** — semantic versioning, changelog, PR creation
-- **docker** — Dockerfile and container patterns
+| Skill                | MUST invoke before…                                          |
+| -------------------- | ------------------------------------------------------------ |
+| **svelte-component** | creating any new `.svelte` file                              |
+| **api-integration**  | writing any `fetch` or SSE streaming code                    |
+| **testing**          | creating or modifying test files                             |
+| **git-workflow**     | any `git push` or `gh pr create`                             |
+| **release**          | bumping version in `package.json` or creating a PR to `main` |
+| **docker**           | editing the `Dockerfile` or any container config             |
 
 ### Rules (`.claude/rules/`)
 

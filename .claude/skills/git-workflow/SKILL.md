@@ -1,6 +1,6 @@
 ---
 name: git-workflow
-description: Git operations including branching, emoji commits, and PR creation. Use when committing changes, creating branches, pushing, or opening pull requests.
+description: 'REQUIRED for ALL PRs, pushes, and commits. Invoke this skill before running any gh pr create or git push command.'
 allowed-tools: Read, Grep, Bash(git:*), Bash(gh:*)
 ---
 

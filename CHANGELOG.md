@@ -4,6 +4,19 @@ All notable changes to Pulsar Chat — a learning project exploring RAG, Svelte 
 
 The format is inspired by [Keep a Changelog](https://keepachangelog.com/) but with more personality.
 
+## [0.1.1] — 2026-03-17 — "Read the Manual"
+
+Skills don't invoke themselves. This patch fixes misleading skill configuration that caused
+Claude Code to skip mandatory workflows — skill triggers now use explicit REQUIRED language,
+and CLAUDE.md no longer claims skills are "automatically discovered."
+
+### 🔧 Fixed
+
+- All 6 skill `description` fields updated from soft "Use when…" to mandatory "REQUIRED when… Invoke this skill before…"
+- CLAUDE.md skills section rewritten: removed false "automatically discovers" claim, added explicit invocation table
+
+---
+
 ## [0.1.0] — 2026-03-17 — "The Big Bang"
 
 Every pulsar has to start somewhere. This is the initial project

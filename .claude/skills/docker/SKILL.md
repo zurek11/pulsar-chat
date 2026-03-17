@@ -1,6 +1,6 @@
 ---
 name: docker
-description: Docker patterns for pulsar-chat. Use when creating or updating the Dockerfile, optimizing the image, or troubleshooting container issues.
+description: 'REQUIRED when modifying the Dockerfile or container setup. Invoke this skill before editing Docker-related files.'
 allowed-tools: Read, Write, Edit, Bash(docker:*), Bash(bun:*)
 ---
 

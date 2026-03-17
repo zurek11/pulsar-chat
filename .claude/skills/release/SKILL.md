@@ -1,6 +1,6 @@
 ---
 name: release
-description: Semantic versioning, changelog updates, and release PRs. Use when bumping version, writing release notes, or preparing a release PR to main.
+description: 'REQUIRED when creating a release PR to main or bumping the version. Invoke this skill before touching package.json version or running gh pr create targeting main.'
 allowed-tools: Read, Write, Edit, Bash(bun:*), Bash(git:*), Bash(gh:*)
 ---
 

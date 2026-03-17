@@ -1,6 +1,6 @@
 ---
 name: api-integration
-description: Add API calls, streaming handlers, and backend communication. Use when connecting to pulsar-api endpoints, handling SSE streams, or managing request/response cycles.
+description: 'REQUIRED when adding or modifying API calls, SSE streams, or backend communication. Invoke this skill before writing fetch or streaming code.'
 allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: testing
-description: Write unit tests (Vitest) and e2e tests (Playwright) for Svelte components and app functionality. Use when creating tests, fixing test failures, or adding test coverage.
+description: 'REQUIRED when writing or fixing tests. Invoke this skill before creating test files or modifying existing ones.'
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash(bun:*), Bash(bunx:*)
 ---
 

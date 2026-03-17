@@ -1,6 +1,6 @@
 ---
 name: svelte-component
-description: Create new Svelte 5 components with runes, TypeScript props, and Tailwind styling. Use when adding UI components, chat elements, or reusable widgets.
+description: 'REQUIRED when creating any new .svelte file. Invoke this skill before writing a new component.'
 allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 

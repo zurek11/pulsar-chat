@@ -48,7 +48,7 @@
 			</div>
 			<div>
 				<h1 class="text-pulsar-text text-sm font-semibold">Pulsar</h1>
-				<p class="text-pulsar-muted text-xs">RAG-powered chat</p>
+				<p class="text-pulsar-muted text-xs">Space science assistant</p>
 			</div>
 		</div>
 	</header>
@@ -77,9 +77,9 @@
 					</svg>
 				</div>
 				<div>
-					<p class="text-pulsar-text font-medium">Ask me anything about RAG</p>
+					<p class="text-pulsar-text font-medium">Ask me anything about space</p>
 					<p class="text-pulsar-muted mt-1 text-sm">
-						I have access to research papers, docs, and tutorials
+						Expert in space engineering, astrophysics, and related sciences
 					</p>
 				</div>
 			</div>

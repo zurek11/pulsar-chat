@@ -4,6 +4,29 @@ All notable changes to Pulsar Chat — a learning project exploring RAG, Svelte 
 
 The format is inspired by [Keep a Changelog](https://keepachangelog.com/) but with more personality.
 
+## [0.3.0] — 2026-03-18 — "Reading the Signal"
+
+The assistant finally speaks in a language the UI understands. Raw LLM markdown was
+landing on screen as literal asterisks and backticks — now it renders properly: bold, lists,
+code blocks, headings, the lot. Also shed the RAG identity — Pulsar is a space science
+assistant now, and the UI copy reflects that. Rounded off with a proper roadmap baked into
+the architecture docs so the next session knows exactly where to pick up.
+
+### 🎉 Added
+
+- Markdown rendering for assistant messages via `marked` — `MessageBubble` now parses and renders
+  LLM output as HTML with full `.markdown-content` styles (headings, code blocks, lists, blockquotes, links)
+- Frontend roadmap in `ARCHITECTURE.md` — four phases covering tests, connection awareness, UX polish,
+  and multi-conversation support; replaces the vague "Future Considerations" section
+
+### ♻️ Changed
+
+- Space science persona across all UI copy: header subtitle, input placeholder, empty state heading
+  and description, page meta description — no more RAG references in the interface
+- `CHANGELOG.md` header updated to remove RAG from the project description blurb
+
+---
+
 ## [0.2.0] — 2026-03-17 — "First Contact"
 
 The app can finally talk. This release wires up the full conversation loop — from the

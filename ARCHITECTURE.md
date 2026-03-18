@@ -346,12 +346,50 @@ data: [DONE]
 Each `data:` line contains one or more tokens. The frontend reads these via `ReadableStream` and
 appends them to the current assistant message in real-time.
 
+## Frontend Roadmap
+
+Concrete next steps, broken into phases. Claude Code: pick these up in order.
+
+### Phase 1: Quality & Foundation
+
+The scaffold is solid but untested. Before anything else:
+
+- **Unit tests (Vitest)** — `chat.svelte.ts` store (sendMessage, stopStreaming, clearChat), `api.ts` streaming parser, utility functions
+- **E2E tests (Playwright)** — basic send flow, stop streaming, clear history, error state
+- **Wire `Button` component** — `ChatInput` uses inline button markup; replace with the existing `Button.svelte` component for consistency
+- **Create `Icon` component** — planned in the component diagram, never built; wrap SVG icons so they're not scattered inline
+
+### Phase 2: Connection Awareness
+
+The app is silent when the backend is down until the first message fails:
+
+- **Health check indicator** — poll `GET /api/health` on mount; show a subtle status dot in the header (green = connected, red = offline)
+- **Retry on error** — after a failed send, show a retry button on the failed message instead of just an error banner
+- **Better error messages** — distinguish network errors from API errors in the UI copy
+
+### Phase 3: UX Polish
+
+Quality-of-life improvements once the core is solid:
+
+- **Message timestamps** — `Message.createdAt` is already stored; surface it in `MessageBubble` as a subtle relative time ("just now", "2 min ago")
+- **Copy message button** — hover action on assistant bubbles to copy raw markdown to clipboard
+- **Auto-focus input** — refocus the textarea after clearing chat or stopping generation
+
+### Phase 4: Multiple Conversations _(explicitly deferred)_
+
+Currently a single in-memory thread. If this ever needs persistence:
+
+- Conversation list / sidebar
+- Named conversations with timestamps
+- Requires backend changes (persistent storage, conversation IDs)
+
+---
+
 ## Future Considerations
 
-Things we explicitly decided NOT to do yet, but might revisit:
+Things we explicitly decided NOT to do yet, and may never need:
 
 - **CI/CD** — no pipeline yet. Docker images are built locally. Will set up GitHub Actions when there's a deployment target.
 - **Authentication** — not needed for a local learning project. If this ever goes beyond localhost, add it.
 - **Database** — the backend doesn't need persistent storage. Chat history lives in memory (Python dict). Clear endpoint resets it.
-- **Multiple conversations** — single chat thread only. No conversation list, no tabs.
 - **Deployment** — no hosting planned. Everything runs on localhost via Docker.

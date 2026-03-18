@@ -41,7 +41,7 @@
 			bind:this={textarea}
 			bind:value
 			rows="1"
-			placeholder="Ask about RAG..."
+			placeholder="Ask about space engineering, astrophysics..."
 			disabled={isStreaming}
 			aria-label="Message input"
 			data-testid="chat-input"

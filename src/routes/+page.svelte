@@ -4,7 +4,7 @@
 
 <svelte:head>
 	<title>Pulsar Chat</title>
-	<meta name="description" content="RAG-powered chat interface" />
+	<meta name="description" content="Space science AI assistant" />
 </svelte:head>
 
 <ChatWindow />
